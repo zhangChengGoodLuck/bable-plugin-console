@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "types": ["node"],
+      "paths": { "*": ["types/*"] },
+      "module": "commonjs",
+      "target": "es6",
+      "outDir": "./dist",
+      "lib": ["es6", "dom"],
+      "sourceMap": false,
+      "rootDir": "babel-plugin-console"
+  },
+  "include": [
+    "babel-plugin-console/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
