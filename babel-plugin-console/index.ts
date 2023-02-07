@@ -74,7 +74,7 @@ const removeConsoleExpression = (path: NodePath, callee, exclude: Array<string>,
 
 export default () => {
   return {
-    name: 'babel-plugin-console',
+    name: '@zhanglibeiye/babel-plugin-console',
     visitor,
   }
 } 

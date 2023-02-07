@@ -1,6 +1,6 @@
 {
   "name": "@zhangbeiyeli/babel-plugin-console",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "依赖babel去除项目中的console语句",
   "main": "dist/index.js",
