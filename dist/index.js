@@ -35,38 +35,33 @@ const removeConsoleExpression = (path, callee, exclude, commentWords) => {
     let isLeadingReserve = false;
     //是否存在后缀注释
     let isTrailReserve = false;
-
+    if (hasLeadingComments(parentNode)) {
+        parentNode.leadingComments.forEach(comment => {
+            if (isReserveComment(comment, commentWords)) {
+                isLeadingReserve = true;
+            }
+        });
+    }
     if (hasTrailingComments(parentNode)) {
         const { start: { line: currentLine } } = parentNode.loc;
         parentNode.trailingComments.forEach(comment => {
             const { start: { line: currentCommentLine } } = comment.loc;
-            if (currentLine === currentCommentLine) {
-              comment.belongCurrentLine = true
-            }
-            if (isReserveComment(comment, commentWords) && comment.belongCurrentLine) {
+            if (isReserveComment(comment, commentWords) && (currentLine === currentCommentLine)) {
                 isTrailReserve = true;
             }
         });
     }
-
-    if (hasLeadingComments(parentNode)) {
-      parentNode.leadingComments.forEach(comment => {
-          if (isReserveComment(comment, commentWords) && !comment.belongCurrentLine) {
-              isLeadingReserve = true;
-            }
-        });
-    }
-
     const hasTarget = exclude.some((patter) => {
         return callee.matchesPattern('console.' + patter);
     });
     if (hasTarget || isLeadingReserve || isTrailReserve)
         return;
+    isArray(path.node.arguments) && path.node.arguments.forEach(item => console.log(item.value));
     path.remove();
 };
 exports.default = () => {
     return {
-        name: '@zhangbeiyeli/babel-plugin-console',
+        name: '@zhanglibeiye/babel-plugin-console',
         visitor,
     };
 };

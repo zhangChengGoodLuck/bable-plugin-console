@@ -20,7 +20,7 @@ const isReserveComment = (node, commonWords) => {
     return commonWords(node.value)
   }
   return ['CommentLine'].includes(node.type) &&
-  (isArray(commonWords) ? commonWords.includes(node.value) : /(no[t]? remove\b)|(reserve\b)/.test(node.value))
+    (isArray(commonWords) ? commonWords.includes(node.value) : /(no[t]? remove\b)|(reserve\b)/.test(node.value))
 }
 
 const visitor = {
@@ -45,7 +45,7 @@ const removeConsoleExpression = (path: NodePath, callee, exclude: Array<string>,
   //是否存在后缀注释
   let isTrailReserve = false
 
-  if(hasLeadingComments(parentNode))  {
+  if (hasLeadingComments(parentNode)) {
     parentNode.leadingComments.forEach(comment => {
       if (isReserveComment(comment, commentWords)) {
         isLeadingReserve = true
@@ -53,21 +53,22 @@ const removeConsoleExpression = (path: NodePath, callee, exclude: Array<string>,
     })
   }
 
-  if(hasTrailingComments(parentNode)) {
-    const {start: { line: currentLine }} = parentNode.loc
+  if (hasTrailingComments(parentNode)) {
+    const { start: { line: currentLine } } = parentNode.loc
     parentNode.trailingComments.forEach(comment => {
-      const {start: {line: currentCommentLine }} = comment.loc
+      const { start: { line: currentCommentLine } } = comment.loc
       if (isReserveComment(comment, commentWords) && (currentLine === currentCommentLine)) {
         isTrailReserve = true
       }
     })
   }
-  
+
   const hasTarget = exclude.some((patter) => {
     return callee.matchesPattern('console.' + patter)
   })
 
   if (hasTarget || isLeadingReserve || isTrailReserve) return
+  isArray(path.node.arguments) && path.node.arguments.forEach(item => console.log(item.value))
 
   path.remove()
 }

@@ -1022,6 +1022,22 @@
   resolved "https://registry.npmmirror.com/@types/node/-/node-18.11.19.tgz#35e26df9ec441ab99d73e99e9aca82935eea216d"
   integrity sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==
 
+"@zhangbeiyeli/babel-plugin-console@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@zhangbeiyeli/babel-plugin-console/-/babel-plugin-console-1.0.2.tgz#d42339d61b475722311ef67cae385c9209f30120"
+  integrity sha512-bHW1aKvfTkqiJ/35OlUOy6wwiMUe2Az1Q+e8yuJaoTaI9hEXgaKW+adSqOFI/OpLpW6RgnZTio4tHB8S0FMLgw==
+  dependencies:
+    "@babel/cli" "^7.20.7"
+    "@babel/core" "^7.20.12"
+    "@babel/generator" "^7.20.14"
+    "@babel/preset-env" "^7.20.2"
+    "@babel/preset-react" "^7.18.6"
+    "@babel/template" "^7.20.7"
+    "@babel/traverse" "^7.20.13"
+    "@babel/types" "^7.20.7"
+    "@types/node" "^18.11.19"
+    babylon "^6.18.0"
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.npmmirror.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"

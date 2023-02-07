@@ -1,6 +1,6 @@
 {
   "name": "@zhangbeiyeli/babel-plugin-console",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "description": "依赖babel去除项目中的console语句",
   "main": "dist/index.js",
@@ -27,6 +27,7 @@
     "@babel/traverse": "^7.20.13",
     "@babel/types": "^7.20.7",
     "@types/node": "^18.11.19",
+    "@zhangbeiyeli/babel-plugin-console": "^1.0.2",
     "babylon": "^6.18.0"
   }
 }
